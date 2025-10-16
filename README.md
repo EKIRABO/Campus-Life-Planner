@@ -9,6 +9,8 @@ GitHub Repository: https://github.com/EKIRABO/Campus-Life-Planner.git
 
 Live Demo (GitHub Pages): https://ekirabo.github.io/Campus-Life-Planner/
 
+Link to the Demo video(Loom): https://www.loom.com/share/e5bd0a43c1ba4ad0805d1ff4dedc6385?sid=0670b9e0-64f7-446a-b63b-9e69d90587e7
+
 Table of Contents:
 
 Overview
