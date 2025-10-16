@@ -1,4 +1,6 @@
 Campus Life Planner
+
+
 A comprehensive, accessible web application designed to help university students manage their daily tasks, events, and academic commitments efficiently.
 
 GitHub Repository & Live Demo:
@@ -54,7 +56,7 @@ Import tasks from JSON using the Import Tasks file input.
 
 Note: Importing replaces all current tasks. Always export before importing if you want a backup.
 
-Accessibility
+Accessibility:
 Fully ARIA-compliant.
 Keyboard navigable.
 Screen reader friendly with aria-live, aria-label, and role attributes.
