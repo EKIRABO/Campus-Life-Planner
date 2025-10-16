@@ -1,0 +1,870 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: white;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(3, 3, 3, 0.15);
+    margin: -20px -20px 20px -20px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+.head-on-the-left {
+    display: flex;
+    align-items: center;
+}
+.menu-bar {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.menu-bar span {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(65, 65, 65);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.menu-bar.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+
+
+
+.menu-bar.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-bar.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+
+    height: 1px;
+    padding: 0;
+    margin: -2px;
+
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+nav button {
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+
+    border-radius: 6px;
+    font-weight: 500;
+    transition: 0.2s;
+
+    cursor: pointer;
+    background-color: #ffffff;
+    color: rgb(65, 65, 65);
+}
+
+nav button:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+nav button.active {
+    background-color: #26b396;
+    color: white;
+}
+
+nav button:focus {
+    outline: 2px solid #6757ce;
+    outline-offset: 2px;
+}
+
+
+@media (max-width: 768px) {
+    .menu-bar {
+        display: flex;
+    }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        flex-direction: column;
+
+        background-color: lightgrey;
+        padding: 12px;
+        gap: 12px;
+
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        display: none;
+
+        width: 100%;
+       
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav button {
+        width: 100%;
+        text-align: left;
+        padding: 15px;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 16px ;
+    }
+}
+
+
+#dashboard-id {
+    margin: 20px 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+
+.dashboard-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 180px;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.25s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.15);
+}
+
+
+
+
+.dashboard-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: rgb(65, 65, 65);
+    font-weight: 600;
+}
+
+
+
+
+.dashboard-card p {
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+    color:rgb(65, 65, 65);
+}
+
+
+.progress-bar {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.progress {
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 30px;
+}
+
+
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #6956e2;
+    transition: width 0.5s ease-in-out;
+}
+
+
+
+#progress-text {
+    margin-top: 7px;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+.graph {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+
+.graph canvas {
+    max-height: 300px;
+}
+
+
+.views {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+.task-card {
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+
+
+
+
+.task-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+
+.task-card.completed {
+    opacity: 0.7;
+    background-color: white;
+}
+
+
+
+.task-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.task-card-header input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.task-card-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    flex: 1;
+}
+
+.task-card.completed .task-card-title {
+    text-decoration: line-through;
+    color: rgb(167, 165, 165);
+}
+
+.task-card-body {
+    font-size: 14px;
+    color: rgb(167, 165, 165);
+    margin: 8px 0;
+}
+
+.task-card-body span {
+    font-weight: 600;
+    color:rgb(65, 65, 65);
+}
+
+.task-card-footer {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+
+
+.task-card-footer button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(216, 103, 103);
+    color: white;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.task-card-footer button:hover {
+    background-color:rgb(216, 103, 103);
+}
+
+
+.structure {
+    display: none;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.structure thead {
+    background-color: white;
+}
+
+.structure th,
+.structure td {
+    padding: 12px;
+    border-bottom: 1px solid lightgrey;
+    text-align: left;
+}
+
+.structure th {
+    font-weight: bold;
+}
+
+.structure tr:hover {
+    background-color: white;
+}
+
+.structure tr.completed {
+    opacity: 0.6;
+}
+.structure tr.completed td:not(:first-child):not(:last-child) {
+    text-decoration: line-through;
+    color: #696868;
+}
+
+
+
+.structure button {
+    padding: 6px 12px;
+    background-color: rgb(216, 103, 103);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.structure button:hover {
+    background-color:rgb(216, 103, 103);
+}
+
+.structure button:focus {
+    outline: 2px solid rgb(65, 65, 65);
+    outline-offset: 2px;
+}
+@media (min-width: 768px) {
+    .views {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .views {
+        display: none;
+    }
+
+    .structure {
+        display: table;
+    }
+}
+
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+form label {
+    font-weight: 500;
+    color: rgb(65, 65, 65);
+}
+
+form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+form input:focus {
+    outline: none;
+    border-color: #6a5acd;
+    box-shadow: 0 0 0 2px rgba(106, 90, 205, 0.2);
+}
+
+form input.invalid {
+    border-color: #ff6b6b;
+    background-color: #ffe6e6;
+}
+form button {
+    margin-right: 12px;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+}
+form button:hover {
+    background-color: #5a4aad;
+}
+
+#clearing, #canceling {
+    background-color: #ccc;
+    color: #333;
+}
+
+#clearing:hover, #canceling:hover {
+    background-color: #bbb;
+}
+
+
+.error {
+    color: #ff6b6b;
+    font-size: 12px;
+    display: block;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    min-height: 18px;
+}
+.records {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+
+.records h4 {
+    margin: 0;
+    flex: 1;
+}
+
+#search-input, .selection {
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#search-input {
+    min-width: 250px;
+}
+
+#search-input:focus, .selection:focus {
+    outline: none;
+    border-color: #6a5acd;
+    box-shadow: 0 0 0 2px rgba(106, 90, 205, 0.2);
+}
+
+#add-task {
+    padding: 10px 20px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+}
+
+#add-task:hover {
+    background-color: #5a4aad;
+}
+
+
+.set-section {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+.set-section h3 {
+    margin-top: 0;
+}
+.set-section label {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.set-section input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+#export-data {
+    padding: 10px 20px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+#export-data:hover {
+    background-color: #5a4aad;
+}
+
+#import-file {
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+#styling {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+
+
+.border {
+    background-color: #ffffff;
+    border: 2px solid #d3d3d3;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.border:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.12);
+}
+
+.border span {
+    font-weight: 600;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+.border p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    #styling {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+@media (min-width: 1024px) {
+    #styling {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+#About img {
+    margin: 25px auto;
+    width: 75%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: relative;
+}
+
+.on-the-left p {
+    margin: 0;
+    color: #666;
+}
+
+.on-the-right {
+    display: flex;
+    gap: 10px;
+}
+
+#Contact-Me {
+    padding: 10px 20px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+}
+
+#Contact-Me:hover {
+    background-color: #5a4aad;
+}
+
+.contacts {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 2000;
+    min-width: 300px;
+    text-align: center;
+}
+
+.contacts h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.contacts p {
+    margin: 15px 0;
+    color: #666;
+}
+
+.contacts a {
+    color: #6a5acd;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contacts a:hover {
+    text-decoration: underline;
+}
+
+
+body.dark-mode {
+    background-color:black;
+    color: #f0f0f0;
+}
+
+body.dark-mode .head {
+    background-color: rgb(65, 65, 65);
+}
+
+body.dark-mode nav {
+    background-color: rgb(65, 65, 65) ;
+}
+
+body.dark-mode nav button {
+    background-color: rgb(65, 65, 65);
+    color: #f0f0f0;
+    border: 1px solid rgb(65, 65, 65);
+}
+
+body.dark-mode nav button:hover {
+    background-color: rgb(65, 65, 65);
+}
+
+body.dark-mode nav button.active {
+    background-color:rgb(77, 180, 77);
+}
+
+body.dark-mode .menu-bar span {
+    background-color: white;
+}
+
+body.dark-mode .dashboard-card {
+    background-color:rgb(65, 65, 65);
+    border: 1px solid rgb(65, 65, 65);
+}
+
+
+
+body.dark-mode .dashboard-card h3 {
+    color: white;
+}
+body.dark-mode .dashboard-card p {
+    color: white;
+}
+body.dark-mode .progress {
+    background-color: rgb(65, 65, 65);
+}
+
+
+body.dark-mode #progress-bar {
+    background-color:rgb(238, 125, 238);
+}
+body.dark-mode .graph {
+    background-color: rgb(65, 65, 65);
+}
+body.dark-mode .task-card {
+    background-color:rgb(65, 65, 65);
+    border-color: rgb(65, 65, 65);
+}
+body.dark-mode .task-card.completed {
+    background-color: rgb(5, 70, 5);
+}
+
+
+
+body.dark-mode .task-card-title {
+    color: white;
+}
+
+body.dark-mode .task-card-body {
+    color: white;
+}
+
+body.dark-mode .task-card-body span {
+    color: white;
+}
+
+body.dark-mode .structure {
+    border-color:rgb(65, 65, 65);
+}
+
+body.dark-mode .structure th {
+    background-color: rgb(65, 65, 65);
+    color:white;
+    border-color: rgb(65, 65, 65);
+}
+
+
+
+body.dark-mode .structure td {
+    border-color: rgb(65, 65, 65);
+    color: white;
+}
+
+body.dark-mode .structure tr:hover {
+    background-color: rgb(65, 65, 65);
+}
+
+body.dark-mode form {
+    background-color: rgb(65, 65, 65);
+}
+
+body.dark-mode form label {
+    color: white;
+}
+
+body.dark-mode form input {
+    background-color: black;
+    color: white;
+    border-color:rgb(65, 65, 65);
+}
+
+body.dark-mode form input.invalid {
+    background-color: darkred;
+    border-color: red;
+}
+
+
+
+body.dark-mode .error {
+    color: rgb(245, 108, 108);
+}
+
+body.dark-mode #search-input,
+body.dark-mode .selection {
+    background-color: rgb(54, 54, 54);
+    color:white;
+    border-color: rgb(65, 65, 65);
+}
+
+body.dark-mode .set-section {
+    background-color: rgb(65, 65, 65);
+    color: white;
+}
+
+body.dark-mode .border {
+    background-color: rgb(65, 65, 65);
+    border-color:rgb(65, 65, 65);
+    color: white;
+}
+
+body.dark-mode .border span {
+    color: white;
+}
+
+
+
+body.dark-mode .border p {
+    color: white;
+}
+
+body.dark-mode footer {
+    background-color: rgb(65, 65, 65);
+}
+
+body.dark-mode .on-the-left p {
+    color: white;
+}
+
+body.dark-mode .contacts {
+    background-color: rgb(65, 65, 65);
+    border: 1px solid rgb(65, 65, 65);
+}
+
+
+
+body.dark-mode .contacts h3 {
+    color: white;
+}
+
+body.dark-mode .contacts p {
+    color: white;
+}
