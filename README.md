@@ -4,7 +4,9 @@ Campus Life Planner
 A comprehensive, accessible web application designed to help university students manage their daily tasks, events, and academic commitments efficiently.
 
 GitHub Repository & Live Demo:
+
 GitHub Repository: https://github.com/EKIRABO/Campus-Life-Planner.git
+
 Live Demo (GitHub Pages): https://ekirabo.github.io/Campus-Life-Planner/
 
 Table of Contents:
@@ -46,19 +48,28 @@ Usage:
 6. Track your weekly activity in the Dashboard section.
 
 Settings:
+
 Theme: Choose between Light Mode and Dark Mode.
+
 Duration Display: Show task durations in minutes or hours.
+
 Import/Export: Back up your tasks or load them from a file.
 
 Import/Export:
+
 Export current tasks to JSON via the Export Data button.
+
 Import tasks from JSON using the Import Tasks file input.
+
 
 Note: Importing replaces all current tasks. Always export before importing if you want a backup.
 
 Accessibility:
+
 Fully ARIA-compliant.
+
 Keyboard navigable.
+
 Screen reader friendly with aria-live, aria-label, and role attributes.
 
 
