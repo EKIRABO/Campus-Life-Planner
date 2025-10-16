@@ -10,16 +10,25 @@ GitHub Repository: https://github.com/EKIRABO/Campus-Life-Planner.git
 Live Demo (GitHub Pages): https://ekirabo.github.io/Campus-Life-Planner/
 
 Table of Contents:
+
 Overview
+
 Features
+
 Getting Started
+
 Usage
+
 Settings
+
 Import/Export
+
 Accessibility
 
 Overview:
+
 Campus Life Planner provides students with a structured and intuitive interface to track their tasks, assignments, and events. It allows users to:
+
 1. Add, edit, and delete tasks
 2 . Track progress visually with a dashboard and charts
 3. Search and filter tasks by title, date, or tag
@@ -41,6 +50,7 @@ git clone https://github.com/EKIRABO/Campus-Life-Planner.git
 
 Usage:
 1. Navigate through the sections using the top navigation buttons.
+   
 2 . Add a new task in the Records section using the Add Task button.
 3. View your tasks in Card View or Table View.
 4. Update task completion by checking/unchecking tasks.
